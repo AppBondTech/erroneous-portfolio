@@ -1038,8 +1038,26 @@
                    Correct ID is "message"
                    but "messages" is used */
 
-                let message =
-                    document.getElementById("messages").value;
+                let messageElement =
+    document.getElementById("messages");
+
+/* INTENTIONAL ERROR */
+
+if(messageElement === null){
+
+    document
+        .getElementById("errorBox")
+        .style.display = "block";
+
+    document
+        .getElementById("errorBox")
+        .innerHTML =
+        "❌ TEST CASE FAILED<br>Message Field Not Found";
+
+    return;
+}
+
+let message = messageElement.value;
 
 
                 if (
